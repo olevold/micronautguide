@@ -6,7 +6,7 @@ pipeline {
                 sh '''
                 chmod a+x gradlew
                 ./gradlew clean dockerbuild
-                cd build
+                docker run -d -rm -p 8081:8080
                 '''
             }
         }
