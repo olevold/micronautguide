@@ -3,10 +3,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'chmod a+x gradlew'
-                sh 'ls -lFa'
-                sh './gradlew clean build'
-                sh 'ls -lFa build'
+                sh '''
+                chmod a+x gradlew
+                ./gradlew clean dockerbuild
+                cd build
+                '''
             }
         }
     }
